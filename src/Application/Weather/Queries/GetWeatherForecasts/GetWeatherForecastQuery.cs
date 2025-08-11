@@ -1,7 +1,7 @@
 ﻿using WeatherApp.Application.Interfaces;
 using WeatherApp.Domain.Entities;
 
-namespace WeatherApp.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+namespace WeatherApp.Application.Weather.Queries.GetWeatherForecasts;
 
 public record GetWeatherForecastQuery : IRequest<WeatherForecast>
 {

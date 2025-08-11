@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeatherApp.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+using WeatherApp.Application.Weather.Queries.GetWeatherForecasts;
 using WeatherApp.Domain.Entities;
 
 namespace WeatherApp.Web.Endpoints;
