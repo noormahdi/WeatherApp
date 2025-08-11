@@ -11,21 +11,24 @@ public class ErrorSimulatorMiddleware
     }
     public async Task InvokeAsync(HttpContext context)
     {
-        bool shouldReturn503 = false;
-
-        lock (_lock)
+        if (context.Request.Path.Equals("/api/Weather"))
         {
-            _requestCount++;
-            if (_requestCount % 5 == 0)
+            bool shouldReturn503 = false;
+
+            lock (_lock)
             {
-                shouldReturn503 = true;
+                _requestCount++;
+                if (_requestCount % 5 == 0)
+                {
+                    shouldReturn503 = true;
+                }
             }
-        }
 
-        if (shouldReturn503)
-        {
-            context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
-            return;
+            if (shouldReturn503)
+            {
+                context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+                return;
+            } 
         }
 
         await _next(context);
