@@ -433,6 +433,10 @@ export class WeatherClient {
             result200 = WeatherForecast.fromJS(resultData200);
             return result200;
             });
+        } else if (status === 503) {
+            return response.text().then((_responseText) => {
+            return throwException("A server side error occurred.", status, _responseText, _headers);
+            });
         } else if (status !== 200 && status !== 204) {
             return response.text().then((_responseText) => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);

@@ -1,4 +1,5 @@
 using WeatherApp.Infrastructure.Data;
+using WeatherApp.Web.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     await app.InitialiseDatabaseAsync();
+    app.UseMiddleware<ErrorSimulatorMiddleware>();
 }
 else
 {
