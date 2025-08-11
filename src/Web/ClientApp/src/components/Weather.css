@@ -1,0 +1,24 @@
+#weather{
+    padding-top: 20px;
+}
+.temperature{
+    font-size: x-large;
+    font-weight: 600;
+}
+.wind{
+    font-style: italic;
+}
+.condition{
+
+}
+.recommendation{
+    font-size: xx-large;
+    font-style: italic;
+}
+.recommendation::before {
+  content: open-quote;
+}
+
+.recommendation::after {
+  content: close-quote;
+}
